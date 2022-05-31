@@ -90,4 +90,9 @@ const getProducts = ()=>{
         },2000)
     });
 }
-export default getProducts;
+const getProductsById = (clave)=>{
+    return new Promise((resolve)=>{
+                resolve(products.find(id=> id=clave));                      
+    });
+}
+export   {getProducts, getProductsById};

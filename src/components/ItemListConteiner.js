@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import ItemCount from "./itemCount";
 import ItemList from "./ItemList";
-import getProducts from "../mocks/mocksProduct"
+import {getProducts} from "../mocks/mocksProduct"
 function ItemListConteiner(props) {
   const [products,setProducts]= useState([]);
   useEffect(()=>{
       getProducts().then(response =>{
           setProducts(response);
-      })
+      }).catch((error) => {
+        console.log(error)
+      });
   },[])
 
   const onAdd = (cantidad =>{
