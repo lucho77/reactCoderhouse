@@ -1,4 +1,5 @@
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 const  ItemDetail = ({product,title}) =>{
     console.log('title');
@@ -6,7 +7,7 @@ const  ItemDetail = ({product,title}) =>{
     return (
 
         <div>
-            <p>{title}</p>
+            <p>Detalle del Producto</p>
         <Card>
           <Card.Body>
             <Card.Title>{product?.name}</Card.Title>
@@ -14,6 +15,8 @@ const  ItemDetail = ({product,title}) =>{
             <Card.Text>
             {product?.desc} -${product?.price} 
             </Card.Text>
+            <Link to={'/'}>Volver</Link>
+
           </Card.Body>
         </Card> 
         </div>

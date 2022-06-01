@@ -8,16 +8,16 @@ function NavBar() {
       <>
   <Navbar bg="light" expand="lg">
   <Container>
-    <Navbar.Brand href="#home">Ecommerce</Navbar.Brand>
+    <Navbar.Brand href="/">Ecommerce</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="#home">Celulares</Nav.Link>
-        <Nav.Link href="#link">Tablets</Nav.Link>
-        <Nav.Link href="#link">Notebooks</Nav.Link>
+        <Nav.Link href="/category/phone">Celulares</Nav.Link>
+        <Nav.Link href="/category/tablet">Tablets</Nav.Link>
+        <Nav.Link href="/category/notebook">Notebooks</Nav.Link>
       </Nav>
     </Navbar.Collapse>
-    <Navbar.Brand href="">
+    <Navbar.Brand href="/">
     <CarWidget/>
     </Navbar.Brand>
   </Container>

@@ -1,19 +1,16 @@
 import { getProductsById } from "../mocks/mocksProduct";
 import ItemDetail from "./ItemDetail";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-function ItemDetailContainer(props) {
+function ItemDetailContainer() {
     const [product,setProduct]= useState();
+    const {productId} = useParams();
     useEffect(()=>{
-        getProductsById(props.id).then(response =>{
-            console.log('id');
-            console.log(props.id);
-            console.log('Response')
-            console.log(response)
-            console.log('title');
-            console.log(props.title);
-            
-            setProduct(response);
+        getProductsById(productId).then(response =>{
+          console.log(productId);
+          console.log(response);
+          setProduct(response);
         }).catch((error) => {
           console.log(error)
         });
@@ -21,7 +18,7 @@ function ItemDetailContainer(props) {
   
       return (
         <>
-      <ItemDetail product={product} title={props.title}/>     
+      <ItemDetail product={product}/>     
       </>
       );
   

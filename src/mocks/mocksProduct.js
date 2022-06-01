@@ -6,16 +6,16 @@ const products = [
     price:5000,
     category:'phone',
     img:'',
-    desc:'Telefono Sansung Glaxy S1 año 2010'
+    desc:'Telefono Sansung Galaxy S1 año 2010'
 },
 {
     id:2,
-    name:'Sansung Galaxy S2',
+    name:'Galaxy Tab A7',
     stock:10,
     price:7350,
-    category:'phone',
+    category:'tablet',
     img:'',
-    desc:'Telefono Sansung Glaxy S2 año 2011'
+    desc:'Tablet Sansung Lite Tab A7'
 },
 {
     id:3,
@@ -28,12 +28,12 @@ const products = [
 },
 {
     id:4,
-    name:'Sansung Galaxy S4',
+    name:'Dell Inspiron 5501',
     stock:23,
     price:11485,
-    category:'phone',
+    category:'notebook',
     img:'',
-    desc:'Telefono Sansung Glaxy S4 año 2013'
+    desc:'Notebook Dell Inspiron  5501 I5 -8GB 512 GB '
 },
 {
     id:5,
@@ -90,9 +90,14 @@ const getProducts = ()=>{
         },2000)
     });
 }
-const getProductsById = (clave)=>{
+const getProductsByCategory = (category)=>{
     return new Promise((resolve)=>{
-                resolve(products.find(id=> id=clave));                      
+                resolve(products.filter(p=> p.category==category));
     });
 }
-export   {getProducts, getProductsById};
+const getProductsById = (clave)=>{
+    return new Promise((resolve)=>{
+                resolve(products.find(p=> p.id==clave));                      
+    });
+}
+export   {getProducts, getProductsById,getProductsByCategory};
