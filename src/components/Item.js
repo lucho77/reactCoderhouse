@@ -5,10 +5,11 @@ const  Item = ({product}) =>{
     
     return (
 
-        <div>
-            <Card>
+        <div className= "col-xs-12 col-sm-8">
+            <Card>             
+            <Card.Header>{product.name}</Card.Header>
+
           <Card.Body>
-            <Card.Title>{product.name}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{product.category}</Card.Subtitle>
             <Card.Text>
                 ${product.price} 
@@ -16,6 +17,7 @@ const  Item = ({product}) =>{
             <Link to={`/detail/${product.id}`}>Ver Detalle</Link>
           </Card.Body>
         </Card> 
+        <br/>
         </div>
     )
 }
