@@ -5,7 +5,7 @@ const  Item = ({product}) =>{
     
     return (
 
-        <div className= "col-xs-12 col-sm-8">
+        <div className= "col-xs-12 col-sm-8 offset-sm-2">
             <Card>             
             <Card.Header>{product.name}</Card.Header>
 

@@ -1,4 +1,4 @@
-import { Container } from 'react-bootstrap';
+import { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import ItemCount from './itemCount';
@@ -6,8 +6,14 @@ import ItemCount from './itemCount';
 const  ItemDetail = ({product,title}) =>{
     console.log('product');
     console.log(product);
+    const [cantidad,setCantidad]=useState(0);
+    const onAdd  = (cant)=>{
+      console.log('cantidad');
+      console.log(cant);
+      setCantidad(cant);
+    }
     return (
-      <div className="col-xs-12 col-sm-8">
+      <div className="col-xs-12 col-sm-8 offset-sm-2">
             <p>Detalle del Producto</p>
         <Card>
           <Card.Body>
@@ -16,7 +22,8 @@ const  ItemDetail = ({product,title}) =>{
             <Card.Text>
             {product?.desc} -${product?.price} 
             </Card.Text>
-            <ItemCount inicial={1} stock={product?.stock}/>
+            {cantidad > 0 ? <Link to='/cart'>finalizar compra</Link>:<ItemCount inicial={1} stock={product?.stock} onAdd={onAdd}/>}
+            <br/>
             <Link to={'/'}>Volver</Link>
 
           </Card.Body>

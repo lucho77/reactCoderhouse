@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import ItemCount from "./itemCount";
 import ItemList from "./ItemList";
 import {getProducts, getProductsByCategory} from "../mocks/mocksProduct"
 import { useParams } from "react-router-dom";
@@ -35,7 +34,6 @@ function ItemListConteiner(props) {
     return (
       <>
     <p>{props.name}</p>
-    {/*<ItemCount inicial={1} stock={5} onAdd={onAdd}/>*/}     
      <ItemList products={products}/> 
     </>
     );

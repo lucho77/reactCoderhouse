@@ -1,22 +1,29 @@
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
-import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 function ItemCount({inicial,stock,onAdd}) {
     const [count,setCount]= useState(inicial);
     const incrementar = ()=>{
+        console.log('incrementar')
+        console.log('stock')
+        console.log(count)
+
         if(stock >count){
             setCount(count +1);
         }
         
     }
     const decrementar = ()=>{
+        console.log('decrementar');
+        console.log('stock')
+        console.log(count)
         if(count >1){
             setCount(count -1);
         }
     }
     const agregarCarrito =()=>{
+        console.log('onAdd carrito')
         onAdd(count);
     }    
     return (
