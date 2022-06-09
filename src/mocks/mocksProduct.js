@@ -6,7 +6,8 @@ const products = [
     price:5000,
     category:'phone',
     img:'',
-    desc:'Telefono Sansung Galaxy S1 año 2010'
+    desc:'Telefono Sansung Galaxy S1 año 2010',
+    cantidad:0,
 },
 {
     id:2,
@@ -15,7 +16,8 @@ const products = [
     price:7350,
     category:'tablet',
     img:'',
-    desc:'Tablet Sansung Lite Tab A7'
+    desc:'Tablet Sansung Lite Tab A7',
+    cantidad:0,
 },
 {
     id:3,
@@ -24,7 +26,8 @@ const products = [
     price:9854,
     category:'phone',
     img:'',
-    desc:'Telefono Sansung Glaxy S3 año 2012'
+    desc:'Telefono Sansung Glaxy S3 año 2012',
+    cantidad:0
 },
 {
     id:4,
@@ -33,7 +36,8 @@ const products = [
     price:11485,
     category:'notebook',
     img:'',
-    desc:'Notebook Dell Inspiron  5501 I5 -8GB 512 GB '
+    desc:'Notebook Dell Inspiron  5501 I5 -8GB 512 GB ',
+    cantidad:0
 },
 {
     id:5,
@@ -42,7 +46,9 @@ const products = [
     price:17000,
     category:'phone',
     img:'',
-    desc:'Telefono Sansung Glaxy S5 año 2014'
+    desc:'Telefono Sansung Glaxy S5 año 2014',
+    cantidad:0
+
 },
 {
     id:6,
@@ -51,7 +57,9 @@ const products = [
     price:24510,
     category:'phone',
     img:'',
-    desc:'Telefono Sansung Glaxy S6 año 2015'
+    desc:'Telefono Sansung Glaxy S6 año 2015',
+    cantidad:0
+
 },
 {
     id:7,
@@ -60,7 +68,9 @@ const products = [
     price:32458,
     category:'phone',
     img:'',
-    desc:'Telefono Sansung Glaxy S7 año 2016'
+    desc:'Telefono Sansung Glaxy S7 año 2016',
+    cantidad:0
+
 },
 {
     id:8,
@@ -69,7 +79,9 @@ const products = [
     price:42545,
     category:'phone',
     img:'',
-    desc:'Telefono Sansung Glaxy S8 año 2017'
+    desc:'Telefono Sansung Glaxy S8 año 2017',
+    cantidad:0
+
 },
 {
     id:9,
@@ -78,7 +90,9 @@ const products = [
     price:57878,
     category:'phone',
     img:'',
-    desc:'Telefono Sansung Glaxy S9 año 2018'
+    desc:'Telefono Sansung Glaxy S9 año 2018',
+    cantidad:0
+
 }
 
 

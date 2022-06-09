@@ -4,11 +4,11 @@ import Nav from 'react-bootstrap/Nav';
 import CarWidget from './CarWidget';
 
 function NavBar() {
-    return (
+  return (
       <>
   <Navbar bg="light" expand="lg">
   <Container>
-    <Navbar.Brand href="/">Ecommerce</Navbar.Brand>
+    <Navbar.Brand href ="/">Ecommerce</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
@@ -17,9 +17,7 @@ function NavBar() {
         <Nav.Link href="/category/notebook">Notebooks</Nav.Link>
       </Nav>
     </Navbar.Collapse>
-    <Navbar.Brand href="/">
     <CarWidget/>
-    </Navbar.Brand>
   </Container>
 </Navbar>
 </>

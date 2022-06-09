@@ -1,16 +1,21 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import ContextCart from '../context/CartContext';
 import ItemCount from './itemCount';
 
 const  ItemDetail = ({product,title}) =>{
-    console.log('product');
-    console.log(product);
-    const [cantidad,setCantidad]=useState(0);
-    const onAdd  = (cant)=>{
+      console.log('product');
+      console.log(product);
+      const {addCart} = useContext(ContextCart)
+//      console.log(addCart);
+      const [cantidad,setCantidad]=useState(0);
+      const onAdd  = (cant)=>{
       console.log('cantidad');
       console.log(cant);
       setCantidad(cant);
+      product.cantidad = cant;
+      addCart(product);
     }
     return (
       <div className="col-xs-12 col-sm-8 offset-sm-2">
