@@ -4,10 +4,12 @@ import Nav from 'react-bootstrap/Nav';
 import CarWidget from './CarWidget';
 import { Link, NavLink } from 'react-router-dom';
 import './NavBar.css'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import ContextCart from "../context/CartContext";
 
 function NavBar() {
   const [expanded, setExpanded] = useState(false);
+  const {cart} = useContext(ContextCart)
 
   return (
       <>
@@ -29,7 +31,7 @@ function NavBar() {
         <NavLink className='enlaces'  to="/category/notebook">Notebooks</NavLink>
       </Nav>
     </Navbar.Collapse>
-    <CarWidget/>
+    {cart.length >0? <CarWidget/>:0}
     </Container>
 
 </Navbar>

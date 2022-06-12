@@ -22,7 +22,7 @@ const  Cart = () =>{
         <div>
             <h1>Carrito</h1>
             <div>
-            <Table striped bordered hover>
+            {cart.length >0? <Table striped bordered hover>
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -47,12 +47,12 @@ const  Cart = () =>{
                     </tr>
           ))}
         </tbody>
-      </Table>
+      </Table>:<div>No hay Elementos en el carrito</div>}
 
       <Card>
   <Card.Header>Total $ {totalCost()}</Card.Header>
   <Card.Body>
-      <Button variant="primary" onClick={()=> limpiaCarrito()}>Limpiar Carrito</Button>{' '}
+      {cart.length>0 && <Button variant="primary" onClick={()=> limpiaCarrito()}>Limpiar Carrito</Button>}
       <Link to={'/'}><Button variant="secondary">Volver</Button></Link>
   </Card.Body>
 </Card>
