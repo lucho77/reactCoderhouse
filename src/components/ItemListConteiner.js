@@ -22,18 +22,13 @@ function ItemListConteiner(props) {
         });
   
       }
-    },[]);
+    },[category]);
 
 
-     
-
-  const onAdd = (cantidad =>{
-    console.log('se agrego al carrito: ' +cantidad);
-  })
   console.log(props);
     return (
       <>
-    <p>{props.name}</p>
+    <p className= "col-xs-12 col-sm-8 offset-sm-2">{props.name}</p>
      <ItemList products={products}/> 
     </>
     );

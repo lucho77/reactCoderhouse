@@ -2,14 +2,20 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import { useState } from 'react';
-function ItemCount({inicial,stock,onAdd}) {
-    const [count,setCount]= useState(inicial);
-    const incrementar = ()=>{
+function ItemCount({inicial=1,stock,onAdd}) {
+    console.log("inicial");
+    console.log(inicial);
+    
+   const [count,setCount]= useState(inicial);
+   //setCount(4);
+    //let count = inicial;
+  const incrementar = ()=>{
         console.log('incrementar')
         console.log('stock')
-        console.log(count)
+        //console.log(count)
 
-        if(stock >count){
+        if(stock >inicial){
+           // inicial++;
             setCount(count +1);
         }
         
@@ -17,8 +23,9 @@ function ItemCount({inicial,stock,onAdd}) {
     const decrementar = ()=>{
         console.log('decrementar');
         console.log('stock')
-        console.log(count)
-        if(count >1){
+        //console.log(count)
+        if(stock >1){
+           //inicial--;
             setCount(count -1);
         }
     }

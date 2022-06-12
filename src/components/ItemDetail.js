@@ -4,18 +4,19 @@ import { Link } from 'react-router-dom';
 import ContextCart from '../context/CartContext';
 import ItemCount from './itemCount';
 
-const  ItemDetail = ({product,title}) =>{
+const  ItemDetail = ({product}) =>{
       console.log('product');
       console.log(product);
-      const {addCart} = useContext(ContextCart)
+      const {addProduct,getCantidadByProd} = useContext(ContextCart)
 //      console.log(addCart);
-      const [cantidad,setCantidad]=useState(0);
+      //const [cantidad,setCantidad]=useState(0);
       const onAdd  = (cant)=>{
-      console.log('cantidad');
-      console.log(cant);
-      setCantidad(cant);
-      product.cantidad = cant;
-      addCart(product);
+        console.log('cantidad');
+        console.log(cant);
+        const productObj = {
+          ... product, cantidad: cant
+        }
+        addProduct(productObj);
     }
     return (
       <div className="col-xs-12 col-sm-8 offset-sm-2">
@@ -27,8 +28,9 @@ const  ItemDetail = ({product,title}) =>{
             <Card.Text>
             {product?.desc} -${product?.price} 
             </Card.Text>
-            {cantidad > 0 ? <Link to='/cart'>finalizar compra</Link>:<ItemCount inicial={1} stock={product?.stock} onAdd={onAdd}/>}
+            {product?.stock > 0 ? <ItemCount inicial={getCantidadByProd(product?.id)} stock={product?.stock} onAdd={onAdd}/>:<div>Sin Stock </div>}
             <br/>
+
             <Link to={'/'}>Volver</Link>
 
           </Card.Body>
