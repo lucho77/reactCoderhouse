@@ -4,10 +4,52 @@ import { Link } from "react-router-dom";
 import ContextCart from "../context/CartContext";
 import "./Cart.css";
 import * as Icon from 'react-bootstrap-icons';
-
+import { addDoc,collection,getDocs,doc,query,where,writeBatch, documentId } from "firebase/firestore";
+import { db } from "../services/firebase/fire";
 const  Cart = () =>{
     const {cart,limpiaCarrito,removeItem} = useContext(ContextCart); 
+    const efectuarOrden = ()=>{
+        const productosSinStock=[];
+        const orden = {
+            usuario:{
+                nombre:'Luciano Orono',
+                telefono:'3424074460',
+                email:'luoronio@gmail.com',
+                ciudad:'santa fe',
+                comentario:'esto es un comentario'
+            },
+            items:cart,
+            total:totalCost()
+        }
+
+        const ids = cart.map(prod=>prod.id);
+        const batch = writeBatch(db);
+        const collectionSeeStockRef = collection(db,'products');
+        getDocs(query(collectionSeeStockRef,where(documentId(),'in',ids))).then(response=>{
+            response.docs.forEach(doc=>{
+                const data = doc.data;
+                const stock = cart.find(prod=>prod.id === doc.id )?.stock
+                if(data.stock >= stock){
+                    batch.update(doc.ref,{stock:data.stock-stock});
+                }else{
+                    productosSinStock.push({id:data.id,...data});
+                }
+            })
+        }).then(()=>{
+          if(productosSinStock.length===0){
+            const collectionRef = collection(db,'ordenes');
+            addDoc(collectionRef,orden).then(({id})=>{
+                console.log('orden creada '+ id);
+                batch.commit();
+                limpiaCarrito();
+            });
     
+          }else{
+              console.log('No hay stock del producto');
+          }  
+        })
+
+    }    
     const totalCost = ()=>{
         let tot=0;
         cart.forEach(element => {
@@ -52,7 +94,8 @@ const  Cart = () =>{
       <Card>
   <Card.Header>Total $ {totalCost()}</Card.Header>
   <Card.Body>
-      {cart.length>0 && <Button variant="primary" onClick={()=> limpiaCarrito()}>Limpiar Carrito</Button>}
+    {cart.length>0 && <Button variant="primary" onClick={()=> efectuarOrden()}>Efectuar compra</Button>}
+    {cart.length>0 && <Button variant="secondary" onClick={()=> limpiaCarrito()}>Limpiar Carrito</Button>}
       <Link to={'/'}><Button variant="secondary">Volver</Button></Link>
   </Card.Body>
 </Card>
