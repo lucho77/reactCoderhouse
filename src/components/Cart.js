@@ -27,8 +27,10 @@ const  Cart = () =>{
         const collectionSeeStockRef = collection(db,'products');
         getDocs(query(collectionSeeStockRef,where(documentId(),'in',ids))).then(response=>{
             response.docs.forEach(doc=>{
-                const data = doc.data;
-                const stock = cart.find(prod=>prod.id === doc.id )?.stock
+                console.log('doc');
+                console.log(doc);
+                const data = doc.data();
+                const stock = cart.find(prod=>prod.id === doc.id )?.cantidad
                 if(data.stock >= stock){
                     batch.update(doc.ref,{stock:data.stock-stock});
                 }else{
