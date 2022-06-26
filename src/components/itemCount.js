@@ -2,6 +2,9 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import { useState } from 'react';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 function ItemCount({inicial=1,stock,onAdd}) {
     console.log("inicial");
     console.log(inicial);
@@ -31,10 +34,14 @@ function ItemCount({inicial=1,stock,onAdd}) {
     }
     const agregarCarrito =()=>{
         console.log('onAdd carrito')
+        NotificationManager.success('ha agregado su producto al carrito', 'Producto agregado');
+
         onAdd(count);
     }    
     return (
       <>
+         <NotificationContainer/>
+
     <InputGroup className="mb-3">
         <Button variant="outline-secondary" id="button-addon1" onClick={decrementar} >
         -
