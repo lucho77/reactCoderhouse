@@ -1,4 +1,4 @@
-import { getProductsById } from "../mocks/mocksProduct";
+
 import ItemDetail from "./ItemDetail";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";

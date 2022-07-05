@@ -121,7 +121,10 @@ function FormOrden() {
         <Modal.Header closeButton>
           <Modal.Title>Orden Generada</Modal.Title>
         </Modal.Header>
-        <Modal.Body>ha generado con exito la orden:  {idOrden}</Modal.Body>
+        <Modal.Body>ha generado con exito la orden:  {idOrden}
+         <pre>{JSON.stringify(datos)}</pre> 
+
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>
             recargar pagina

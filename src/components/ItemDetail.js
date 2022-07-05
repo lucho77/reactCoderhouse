@@ -30,6 +30,9 @@ const  ItemDetail = ({product}) =>{
       <div className="col-xs-12 col-sm-8 offset-sm-2">
             <p>Detalle del Producto</p>
         <Card>
+                <picture>
+                    <img src ={ product?.img } width="200" height="200"  />
+                </picture>
           <Card.Body>
             <Card.Title>{product?.name}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{product?.category}</Card.Subtitle>
